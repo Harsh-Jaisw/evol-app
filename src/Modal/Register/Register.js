@@ -20,7 +20,6 @@ import {
 import { Link } from "react-router-dom";
 
 const Register = () => {
-  // Declared the initial values as it defines to the empty string and then it will manage through formik.
   const initialValues = {
     username: "",
     email: "",
@@ -28,19 +27,17 @@ const Register = () => {
   };
 
   const handleSubmit = (values) => {
-    // Handle registration logic here
-    console.log(values);
+   
+  localStorage.setItem("FormData",JSON.stringify([...FormData,values]))
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box p={4}>
-      <Heading size="xl" mb={4}>
-        Register
-      </Heading>
+    // <Box p={4}>
+     <>
       <Button onClick={onOpen} colorScheme="blue">
-        Open Modal
+       Register
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -127,7 +124,8 @@ const Register = () => {
           </ModalBody>
         </ModalContent>
       </Modal>
-    </Box>
+    {/* // </Box> */}
+    </>
   );
 };
 export default Register;

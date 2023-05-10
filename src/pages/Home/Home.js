@@ -18,7 +18,7 @@ function Home() {
     // It loads the reader and updated to state.
     reader.onload = () => {
       dispatch(
-        addImages({ reader: reader.result, time: time.toLocaleTimeString() })
+        addImages({ reader: reader.result, time: time.toLocaleTimeString(),like:0 })
       );
     };
   };

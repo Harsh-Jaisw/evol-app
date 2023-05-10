@@ -8,11 +8,11 @@ function Top() {
   console.log(data)
   return (
     <div className={style.cardContainer}>
-      {data?.map((item,i) => (
+      {data.map((item,i) => (
         <div className={style.cardWrapper}>
           <img src={item.reader} alt="" className={style.cardImage}  />
           <div className={style.cardAction}>
-            <span className={style.cardLikecon}><AiOutlineLike /></span>
+            <span className={style.cardLikecon}><AiOutlineLike /> {item.like}</span>
             <span className={style.time}>Uploaded at - {item.time} </span>
             </div>
           </div>
