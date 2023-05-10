@@ -1,33 +1,25 @@
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  ButtonGroup,
-  Button,
-  Image,
-} from "@chakra-ui/react";
-import { SlLike } from "react-icons/sl";
-import "./card.css";
+
+import { useSelector } from "react-redux";
+import style from  "./card.module.css";
+import {AiOutlineLike} from "react-icons/ai"
 export function Cards() {
   // data fetch from local storage to persistance.
-  const data = JSON.parse(localStorage.getItem("data"));
+  // const data = JSON.parse(localStorage.getItem("data"));
+   const data=useSelector((state)=>{
+    return state.images
+   })
+  // const data=[]
 
   return (
-    <div className="card">
-      {data.map((item) => (
-        <Card maxW="sm">
-          <CardBody>
-            <Image src={item?.selectedImage} alt="Selected" borderRadius="lg" />
-          </CardBody>
-          <CardFooter>
-            <ButtonGroup spacing="4">
-              <Button>
-                <SlLike />
-              </Button>
-              Uploaded at - {item.time}
-            </ButtonGroup>
-          </CardFooter>
-        </Card>
+    <div className={style.cardContainer}>
+      {data?.map((item,i) => (
+        <div className={style.cardWrapper}>
+          <img src={item.reader} alt="" className={style.cardImage}  />
+          <div className={style.cardAction}>
+            <span className={style.cardLikecon}><AiOutlineLike /></span>
+            <span className={style.time}>Uploaded at - {item.time} </span>
+            </div>
+          </div>
       ))}
     </div>
   );

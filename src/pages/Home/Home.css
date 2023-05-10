@@ -1,5 +1,7 @@
-.homeCardFooter{
+.home{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width:1024px;
+    width:100%
 }
