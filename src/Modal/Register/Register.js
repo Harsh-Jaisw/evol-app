@@ -2,8 +2,6 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { validationSchema } from "../../Validation";
 import {
-  Box,
-  Heading,
   FormControl,
   FormLabel,
   Input,
@@ -18,8 +16,10 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+const tonav=useNavigate()
+
   const initialValues = {
     username: "",
     email: "",
@@ -29,6 +29,7 @@ const Register = () => {
   const handleSubmit = (values) => {
    
   localStorage.setItem("FormData",JSON.stringify([...FormData,values]))
+ tonav("/home")
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,9 +37,9 @@ const Register = () => {
   return (
     // <Box p={4}>
      <>
-      <Button onClick={onOpen} colorScheme="blue">
+      <span onClick={onOpen} colorScheme="blue">
        Register
-      </Button>
+      </span>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
@@ -109,15 +110,15 @@ const Register = () => {
                 </Field>
 
                 <ModalFooter>
-                  <Button type="submit" colorScheme="blue">
+                  <Button type="submit" onClick={onClose} colorScheme="blue">
                     Register
                   </Button>
                   <Button variant="ghost" onClick={onClose}>
                     Cancel
                   </Button>
-                  <p>
+                  <span>
                     Already have an account? <Link to="/login">Login</Link>
-                  </p>
+                  </span>
                 </ModalFooter>
               </Form>
             </Formik>

@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {useNavigate} from "react-router-dom"
 import Login from '../../Modal/Login/Login';
 import Register from '../../Modal/Register/Register';
+import Upload from '../../Modal/UploadImage/Upload';
 
 
 function Header() {
@@ -11,7 +12,7 @@ function Header() {
   return (
     <Navbar bg="primary" expand="lg">
       <Container fluid>
-        <Navbar.Brand onClick={()=>tonav("/")}>Evol</Navbar.Brand>
+        <Navbar.Brand onClick={()=>tonav("/home")}>Evol</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -21,10 +22,10 @@ function Header() {
           >
             <span onClick={()=>tonav("/top")}>Top</span>
             <span onClick={()=>tonav("/recent")}>Recent</span>
-            <span >Upload Image</span>
+            <Upload/>
           </Nav> 
           
-        <Login/>
+        <Login/>/
         <Register/>
           
         </Navbar.Collapse>

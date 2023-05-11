@@ -20,8 +20,10 @@
     object-fit: cover;
     border-radius: 4px;
 }
-.cardLikeIcon{
-   margin-left:1rem;
+.cardLikecon{
+   display: flex;
+   align-items: center;
+   gap:5px;
 }
 .cardAction{
     display: flex;

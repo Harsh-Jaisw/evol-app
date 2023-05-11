@@ -23,7 +23,7 @@ export default function Login() {
 
   return (
     <>
-      <Button onClick={onOpen}>Login</Button>
+      <span onClick={onOpen}>Login</span>
 
       <Modal
         initialFocusRef={initialRef}
